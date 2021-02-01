@@ -206,5 +206,21 @@ Show the attribution and telemetry action sheet.<br/>If you implement a custom a
 | ---- | :--: | :------: | :----------: |
 
 
+#### getDirection()
+
+Returns the current direction of the map view.
+
+##### arguments
+| Name | Type | Required | Description  |
+| ---- | :--: | :------: | :----------: |
+
+
+
+
+```javascript
+const direction = await this._map.getDirection();
+```
+
+
 
 

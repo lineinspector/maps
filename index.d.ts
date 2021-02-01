@@ -178,6 +178,7 @@ declare namespace MapboxGL {
     ): Promise<GeoJSON.FeatureCollection | undefined>;
     takeSnap(writeToDisk?: boolean): Promise<string>;
     getZoom(): Promise<number>;
+    getDirection(): Promise<number>;
     getCenter(): Promise<GeoJSON.Position>;
     showAttribution(): void;
     setSourceVisibility(visible: Boolean, sourceId: string, sourceLayerId?: string): void;

@@ -2715,6 +2715,24 @@
         "returns": null,
         "description": "Show the attribution and telemetry action sheet.\nIf you implement a custom attribution button, you should add this action to the button.",
         "examples": []
+      },
+      {
+        "name": "getDirection",
+        "docblock": "Returns the current direction of the map view.\n\n@example\nconst direction = await this._map.getDirection();\n\n@return {Number}",
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": {
+          "description": null,
+          "type": {
+            "name": "Number"
+          }
+        },
+        "description": "Returns the current direction of the map view.",
+        "examples": [
+          "\nconst direction = await this._map.getDirection();\n\n"
+        ]
       }
     ],
     "props": [

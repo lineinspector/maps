@@ -327,6 +327,23 @@ RCT_EXPORT_METHOD(setSourceVisibility:(nonnull NSNumber *)reactTag
     }];
 }
 
+RCT_EXPORT_METHOD(getDirection:(nonnull NSNumber*)reactTag
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+    [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *manager, NSDictionary<NSNumber*, UIView*> *viewRegistry) {
+        id view = viewRegistry[reactTag];
+
+        if (![view isKindOfClass:[RCTMGLMapView class]]) {
+            RCTLogError(@"Invalid react tag, could not find RCTMGLMapView");
+            return;
+        }
+
+        RCTMGLMapView *reactMapView = (RCTMGLMapView*)view;
+        resolve(@{ @"direction": @(reactMapView.direction) });
+    }];
+}
+
 #pragma mark - UIGestureRecognizers
 
 - (void)didTapMap:(UITapGestureRecognizer *)recognizer

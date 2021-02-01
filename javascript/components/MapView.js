@@ -517,6 +517,20 @@ class MapView extends NativeBridgeComponent(React.Component) {
   }
 
   /**
+   * Returns the current direction of the map view.
+   *
+   * @example
+   * const direction = await this._map.getDirection();
+   *
+   * @return {Number}
+   */
+
+  async getDirection() {
+    const res = await this._runNativeCommand('getDirection', this._nativeRef);
+    return res.direction;
+  }
+
+  /**
    * Returns the map's geographical centerpoint
    *
    * @example

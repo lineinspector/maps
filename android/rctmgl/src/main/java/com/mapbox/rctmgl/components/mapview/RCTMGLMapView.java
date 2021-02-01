@@ -894,6 +894,16 @@ public class RCTMGLMapView extends MapView implements OnMapReadyCallback, Mapbox
         mManager.handleEvent(event);
     }
 
+    public void getDirection(String callbackID) {
+        CameraPosition position = mMap.getCameraPosition();
+
+        WritableMap payload = new WritableNativeMap();
+        payload.putDouble("direction", position.bearing);
+
+        AndroidCallbackEvent event = new AndroidCallbackEvent(this, callbackID, payload);
+        mManager.handleEvent(event);
+    }
+
     public void queryRenderedFeaturesInRect(String callbackID, RectF rect, Expression filter, List<String> layerIDs) {
         List<Feature> features = mMap.queryRenderedFeatures(rect, filter,
                 layerIDs.toArray(new String[layerIDs.size()]));

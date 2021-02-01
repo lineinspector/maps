@@ -215,6 +215,7 @@ public class RCTMGLMapViewManager extends AbstractEventEmitter<RCTMGLMapView> {
     public static final int METHOD_SET_HANDLED_MAP_EVENTS = 10;
     public static final int METHOD_SHOW_ATTRIBUTION = 11;
     public static final int METHOD_SET_SOURCE_VISIBILITY = 12;
+    public static final int METHOD_GET_DIRECTION = 13;
 
     @Nullable
     @Override
@@ -231,6 +232,7 @@ public class RCTMGLMapViewManager extends AbstractEventEmitter<RCTMGLMapView> {
                 .put( "setHandledMapChangedEvents", METHOD_SET_HANDLED_MAP_EVENTS)
                 .put("showAttribution", METHOD_SHOW_ATTRIBUTION)
                 .put("setSourceVisibility", METHOD_SET_SOURCE_VISIBILITY)
+                .put("getDirection", METHOD_GET_DIRECTION)
                 .build();
     }
 
@@ -294,6 +296,9 @@ public class RCTMGLMapViewManager extends AbstractEventEmitter<RCTMGLMapView> {
                         args.getString(2),
                         args.getString(3)
                 );
+            case METHOD_GET_DIRECTION:
+                mapView.getDirection(args.getString(0));
+                break;
 
         }
     }
